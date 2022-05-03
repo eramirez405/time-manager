@@ -1,0 +1,107 @@
+<div class="container-fluid">
+  <br />
+  <h3 style="color : black">
+    <img
+      width="35px"
+      style="vertical-align: bottom;"
+      src="/favicon.png"
+      alt=""
+    />
+    Workers Time Report</h3>
+  <hr />
+  <br />
+  <h5 style="color : black">{{startDate}} - {{endDate}}</h5>
+
+  <table class="table table-hover">
+    <thead
+      style="background-image: linear-gradient(#04519b,#033c73 60%,#02325f);
+    background-repeat: no-repeat; color : white !important"
+    >
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Schedule Start</th>
+        <th scope="col">Break Time</th>
+        <th scope="col">Schedule End</th>
+        <th scope="col">Attendance</th>
+        <th scope="col">Worked Hours</th>
+        <th scope="col">Worked Schedule</th>
+        <th scope="col">Break Avg</th>
+        <th scope="col">Away Avg</th>
+        <th scope="col">Lateness</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each data}}
+        <tr class={{rowColor}}>
+          <th scope="row">{{this.name}}</th>
+          <td>{{this.department}}</td>
+          <td>{{this.scheduleStart}}</td>
+          <td>{{this.breakTime}}</td>
+          <td>{{this.scheduleEnd}}</td>
+          <td>{{this._attendance}}</td>
+          <td>{{this._workedHours}}</td>
+          <td>{{this._scheduleWorkedHours}}</td>
+          <td>{{this.avgBreakMin}}</td>
+          <td>{{this.avgAwayMin}}</td>
+          <td>{{this.lateness}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <br />
+
+  <h5 style="color : black">Notes</h5>
+  <hr />
+  {{#each data}}
+    {{#if this.license}}
+      <section>
+        <p style="font-weight: bold;">{{this.name}}</p>
+        <div class="row">
+          {{#each this.events}}
+            <div class="col-md-4">
+              <ul class="list-group">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  {{this}}
+                </li>
+              </ul>
+            </div>
+          {{/each}}
+        </div>
+      </section>
+      <br />
+    {{/if}}
+  {{/each}}
+
+  <h5 style="color : black">Licencias y vacaciones</h5>
+  <hr />
+
+  {{#each data}}
+    {{#if this.license}}
+      <section>
+
+        <p style="font-weight: bold;">{{this.name}}</p>
+
+        <div class="row">
+          {{#each this.license}}
+            <div class="col-md-6.5 ml-3">
+              <ul class="list-group">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  {{this}}
+                </li>
+              </ul>
+            </div>
+          {{/each}}
+        </div>
+      </section>
+      <br />
+    {{/if}}
+  {{/each}}
+
+</div>

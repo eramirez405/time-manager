@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+   <link href="/css/bootstrap.min.css" rel="stylesheet" >
+    <style>
+      @media print {
+        body { 
+          -webkit-print-color-adjust: exact; 
+          margin: 0;
+          color: #000;
+          background-color: #fff;
+          font-size: 12px;
+        }
+
+        section {
+          break-inside: avoid-page;
+        }
+
+        @page { margin: 0.5cm; margin-bottom: 0.1cm; }
+      }
+    </style>
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+</html>

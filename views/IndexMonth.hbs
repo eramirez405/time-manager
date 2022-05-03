@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <br />
+  <h3 style="color : black">
+    <img
+      width="35px"
+      style="vertical-align: bottom;"
+      src="/favicon.png"
+      alt=""
+    />
+    Workers Time Report</h3>
+  <hr />
+  <br />
+  <h5 style="color : black">{{startDate}} - {{endDate}}</h5>
+  {{#each data}}
+
+    <table class="table table-hover">
+      <thead
+        style="background-image: linear-gradient(#04519b,#033c73 60%,#02325f);
+    background-repeat: no-repeat; color : white !important"
+      >
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Department</th>
+          <th scope="col">Schedule Start</th>
+          <th scope="col">Break Time</th>
+          <th scope="col">Schedule End</th>
+          <th scope="col">Date</th>
+          <th scope="col">Day</th>
+          <th scope="col">Cloking</th>
+          <th scope="col">Logout</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each this}}
+          <tr class={{this.rowColor}}>
+            <th scope="row">{{this.name}}</th>
+            <td>{{this.department}}</td>
+            <td>{{this.scheduleStart}}</td>
+            <td>{{this.breakTime}}</td>
+            <td>{{this.scheduleEnd}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.dayWeek}}</td>
+            <td>{{this.firstCloking}}</td>
+            <td>{{this.Logout}}</td>
+
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  {{/each}}
+  <br />
+
+</div>
